@@ -21,59 +21,58 @@
 
         
         <!-- Trigger/Open The Modal -->
-        <button id="myBtn">About</button>
+        <!-- <button id="myBtn">About</button> -->
         
         <!-- The Modal -->
         <div id="myModal" class="modal">
           
           <!-- Modal content -->
-          <div class="modal-content">
+          <div class="modal-content" id="modal-content">
             <span class="close">&times;</span>
-            <p>This tool allows you to rate your dataset for FAIRness.</p>
+            This tool allows you to rate your dataset for FAIRness.
           </div>
           
         </div>
         
-        
         <hr />
 
-        <h3>FINDABLE</h3>
+        <h3>Findable</h3>
 
         <label for="fair-findable-1">Does the dataset have any identifiers assigned?</label>
         <select id="fair-findable-1" name="fair-findable-1">
-            <option data-rating=10 value="Globally Unique, citable and persistent (e.g. DOI, PURL, ARK or Handle">Globally Unique, citable and persistent (e.g. DOI, PURL, ARK or Handle</option>
-            <option data-rating=15 value="Web address (URL)">Web address (URL)</option>
-            <option data-rating=12 value="Local Identifier">Local Identifier</option>
-            <option data-rating=5 value="No identifier" selected>No identifier</option>
+            <option data-rating=8 value="Globally Unique, citable and persistent (e.g. DOI, PURL, ARK or Handle">Globally Unique, citable and persistent (e.g. DOI, PURL, ARK or Handle</option>
+            <option data-rating=3 value="Web address (URL)">Web address (URL)</option>
+            <option data-rating=1 value="Local Identifier">Local Identifier</option>
+            <option data-rating=0 value="No identifier" selected>No identifier</option>
         </select>
 
         <br />
 
         <label for="fair-findable-2">Is the dataset identifier included in all metadata records/files describing the data?</label>
         <select id="fair-findable-2" name="fair-findable-2">
-            <option rating=6 value="Yes">Yes</option>
-            <option rating=10 value="No" selected>No</option>
+            <option data-rating=1 value="Yes">Yes</option>
+            <option data-rating=0 value="No" selected>No</option>
         </select>
 
         <br />
         
         <label for="fair-findable-3">How is the data described with metadata?</label>
         <select id="fair-findable-3" name="fair-findable-3">
-            <option rating=15 value="Comprehensively (see suggestion) using a recognised formal machine-readable metadata schema">Comprehensively (see suggestion) using a recognised formal machine-readable metadata schema</option>
-            <option rating=5 value="Comprehensively, but in a text-based, non-standard format">Comprehensively, but in a text-based, non-standard format</option>
-            <option rating=10 value="Brief title and description">Brief title and description</option>
-            <option rating=20 value="The data is not described" selected>The data is not described</option>
+            <option data-rating=4 value="Comprehensively (see suggestion) using a recognised formal machine-readable metadata schema">Comprehensively (see suggestion) using a recognised formal machine-readable metadata schema</option>
+            <option data-rating=3 value="Comprehensively, but in a text-based, non-standard format">Comprehensively, but in a text-based, non-standard format</option>
+            <option data-rating=2 value="Brief title and description">Brief title and description</option>
+            <option data-rating=0 value="The data is not described" selected>The data is not described</option>
         </select>
 
         <br />
         
         <label for="fair-findable-4">What type of repository or registry is the metadata record in?</label>
         <select id="fair-findable-4" name="fair-findable-4">
-            <option rating = 10 value="Data is in one place but discoverable through several registries">Data is in one place but discoverable through several registries</option>
-            <option rating = 2 value="Generalist public repository">Generalist public repository</option>
-            <option rating = 10 value="Domain-specific repository">Domain-specific repository</option>
-            <option rating = 5 value="Local institution repository">Local institution repository</option>
-            <option rating = 15 value="This data is not described in any repository" selected>This data is not described in any repository</option>
+            <option data-rating=4 value="Data is in one place but discoverable through several registries">Data is in one place but discoverable through several registries</option>
+            <option data-rating=2 value="Generalist public repository">Generalist public repository</option>
+            <option data-rating=2 value="Domain-specific repository">Domain-specific repository</option>
+            <option data-rating=2 value="Local institution repository">Local institution repository</option>
+            <option data-rating=0 value="The data is not described in any repository" selected>The data is not described in any repository</option>
         </select>
 
         <br />
@@ -84,33 +83,33 @@
 
         <label for="fair-accessible-1">How accessible is the data?</label>
         <select id="fair-accessible-1" name="fair-accessible-1">
-            <option value="publicly accessible">publicly accessible</option>
-            <option value="Fully accessible to persons who meet explicitly stated conditions, e.g. ethics approval for sensitive data">Fully accessible to persons who meet explicitly stated conditions, e.g. ethics approval for sensitive data</option>
-            <option value="A de-identified/modified subset of the data is publicly accessible">A de-identified/modified subset of the data is publicly accessible</option>
-            <option value="Embargoed access after a specified date">Embargoed access after a specified date</option>
-            <option value="Unspecified conditional access e.g. contact the data custodian for access">Unspecified conditional access e.g. contact the data custodian for access</option>
-            <option value="Access to metadata only">Access to metadata only</option>
-            <option value="No access to data or metadata" selected>No access to data or metadata</option>
+            <option data-rating=5 value="Publicly accessible">Publicly accessible</option>
+            <option data-rating=5 value="Fully accessible to persons who meet explicitly stated conditions, e.g. ethics approval for sensitive data">Fully accessible to persons who meet explicitly stated conditions, e.g. ethics approval for sensitive data</option>
+            <option data-rating=4 value="A de-identified/modified subset of the data is publicly accessible">A de-identified/modified subset of the data is publicly accessible</option>
+            <option data-rating=3 value="Embargoed access after a specified date">Embargoed access after a specified date</option>
+            <option data-rating=2 value="Unspecified conditional access e.g. contact the data custodian for access">Unspecified conditional access e.g. contact the data custodian for access</option>
+            <option data-rating=1 value="Access to metadata only">Access to metadata only</option>
+            <option data-rating=0 value="No access to data or metadata" selected>No access to data or metadata</option>
         </select>
 
         <br />
 
         <label for="fair-accessible-2">Is the data available online without requiring specialised protocols or tools once access has been approved?</label>
         <select id="fair-accessible-2" name="fair-accessible-2">
-            <option value="Standard web service API (e.g. OGC)">Standard web service API (e.g. OGC)</option>
-            <option value="Non-standard web service (e.g. OpenAPI/Swagger/Informal API">Non-standard web service (e.g. OpenAPI/Swagger/Informal API</option>
-            <option value="File download from online location">File download from online location</option>
-            <option value="By individual arrangement">By individual arrangement</option>
-            <option value="No access to data" selected>No access to data</option>
+            <option data-rating=4 value="Standard web service API (e.g. OGC)">Standard web service API (e.g. OGC)</option>
+            <option data-rating=3 value="Non-standard web service (e.g. OpenAPI/Swagger/Informal API">Non-standard web service (e.g. OpenAPI/Swagger/Informal API</option>
+            <option data-rating=2 value="File download from online location">File download from online location</option>
+            <option data-rating=1 value="By individual arrangement">By individual arrangement</option>
+            <option data-rating=0 value="No access to data" selected>No access to data</option>
         </select>
 
         <br />
 
         <label for="fair-accessible-3">Will the metadata record be available even if the data is no longer available?</label>
         <select id="fair-accessible-3" name="fair-accessible-3">
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-            <option value="Unsure" selected>Unsure</option>
+            <option data-rating=1 value="Yes">Yes</option>
+            <option data-rating=0 value="No">No</option>
+            <option data-rating=0 value="Unsure" selected>Unsure</option>
         </select>
 
         <br />
@@ -121,28 +120,29 @@
 
         <label for="fair-interoperable-1">What (file) format(s) is the data available in?</label>
         <select id="fair-interoperable-1" name="fair-interoperable-1">
-            <option value="In a structured, open standard, machine-readable format">In a structured, open standard, machine-readable format</option>
-            <option value="In a structured, open standard, non-machine-readable format">In a structured, open standard, non-machine-readable format</option>
-            <option value="Mostly in a proprietry format" selected>Mostly in a proprietary format</option>
+            <option data-rating=2 value="In a structured, open standard, machine-readable format">In a structured, open standard, machine-readable format</option>
+            <option data-rating=1 value="In a structured, open standard, non-machine-readable format">In a structured, open standard, non-machine-readable format</option>
+            <option data-rating=0 value="Mostly in a proprietry format" selected>Mostly in a proprietary format</option>
         </select>
 
         <br />
 
         <label for="fair-interoperable-2">What best describes the types of vocabularies/ontologies/tagging schemas used to define the data elements?</label>
         <select id="fair-interoperable-2" name="fair-interoperable-2">
-            <option value="Standardised open and universal using resolvable global identifiers linking to explanations">Standardised open and universal using resolvable global identifiers linking to explanations</option>
-            <option value="Standardised vocabularies/ontologies/schema without global identifiers">Standardised vocabularies/ontologies/schema without global identifiers</option>
-            <option value="No standards have been applied in the description of data elements" selected>No standards have been applied in the description of data elements</option>
+            <option data-rating=3 value="Standardised open and universal using resolvable global identifiers linking to explanations">Standardised open and universal using resolvable global identifiers linking to explanations</option>
+            <option data-rating=2 value="Standardised vocabularies/ontologies/schema without global identifiers">Standardised vocabularies/ontologies/schema without global identifiers</option>
+            <option data-rating=1 value="No standards have been applied in the description of data elements">No standards have been applied in the description of data elements</option>
+            <option data-rating=0 value="Data elements not described" selected>Data elements not described</option>
         </select>
 
         <br />
 
         <label for="fair-interoperable-3">How is the metadata linked to other data and metadata (to enhance context and clearly indicate relationships)?</label>
         <select id="fair-interoperable-3" name="fair-interoperable-3">
-            <option value="Metadata is represented in a machine readable format, e.g. in a linked data format such as Resource Description Framework (RDF).">
+            <option data-rating=3 value="Metadata is represented in a machine readable format, e.g. in a linked data format such as Resource Description Framework (RDF).">
                 Metadata is represented in a machine readable format, e.g. in a linked data format such as Resource Description Framework (RDF).</option>
-            <option value="The metadata record includes URI links to related metadata, data and definitions">The metadata record includes URI links to related metadata, data and definitions</option>
-            <option value="There are no links to other metadata" selected >There are no links to other metadata</option>
+            <option data-rating=2 value="The metadata record includes URI links to related metadata, data and definitions">The metadata record includes URI links to related metadata, data and definitions</option>
+            <option data-rating=0 value="There are no links to other metadata" selected >There are no links to other metadata</option>
         </select>
 
         <br />
@@ -150,14 +150,36 @@
         <br />
 
         <h3>Reusable</h3>
+
+        <label for="fair-reusable-1">Which of the following best describes the license/usage rights attached to the data?</label>
+        <select id="fair-reusable-1" name="fair-reusable-1">
+            <option data-rating=4 value="Standard machine-readable license (e.g. Creative Commons)">Standard machine-readable license (e.g. Creative Commons)</option>
+            <option data-rating=3 value="Standard text based license">Standard text based license</option>
+            <option data-rating=2 value="Non-standard machine-readable license (clearly indicating under what conditions the data may be reused)" selected>Non-standard machine-readable license (clearly indicating under what conditions the data may be reused)</option>
+            <option data-rating=2 value="Non-standard text-based license" selected>Non-standard text-based license</option>
+            <option data-rating=0 value="No License" selected>No License</option>
+        </select>
+
+        <br />
+
+        <label for="fair-reusable-2">How much provenance information has been captured to facilitate data reuse?</label>
+        <select id="fair-reusable-2" name="fair-reusable-2">
+            <option data-rating=3 value="Fully recorded in a machine-readable format">Fully recorded in a machine-readable format</option>
+            <option data-rating=2 value="Fully recorded in a text format">Fully recorded in a text format</option>
+            <option data-rating=1 value="Partially recorded">Partially recorded</option>
+            <option data-rating=0 value="No provenance information is recorded" selected>No provenance information is recorded</option>
+        </select>
+
+        <br />
+
         <br />
         <br />
 
         <div id ="toptext"></div>
         
-        <input id="generateTextBtn" class="button-primary" type="button" value="Generate Text" onclick=generateText()>
-        <input id="clearTextBtn" class="button" type="button" value="Clear Text" onclick=clearText() style="display: none" >
-        <input id="copyClipboardBtn" class="button-secondary" type="button" value="Copy to Clipboard" onclick=copyToClipboard() style="display: none" >
+        <input id="generateTextBtn" class="button-primary" type="button" value="Submit" onclick=generateText()>
+        <!-- <input id="clearTextBtn" class="button" type="button" value="Clear Text" onclick=clearText() style="display: none" >
+        <input id="copyClipboardBtn" class="button-secondary" type="button" value="Copy to Clipboard" onclick=copyToClipboard() style="display: none" > -->
 
         <hr /> 
 
