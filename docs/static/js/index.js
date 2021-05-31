@@ -7,12 +7,14 @@ const generateText = () => {
     val6 = document.getElementById('fair-accessible-2').value;
     val7 = document.getElementById('fair-accessible-3').value;
     val8 = document.getElementById('fair-interoperable-1').value;
+    val9 = document.getElementById('fair-interoperable-2').value;
+    val10 = document.getElementById('fair-interoperable-3').value;
     
-    // Get scores of 
-    x = document.getElementById('fair-findable-1')
-    x.options[x.selectedIndex].getAttribute('data-rating');
+    // Calculate the assessment rating of the selected answers 
+    ff1 = document.getElementById('fair-findable-1')
+    ff1.options[ff1.selectedIndex].getAttribute('data-rating');
 
-    // Generate acknoledgement text
+    // Generate acknowledgement text
     const ack = "This text has been generated following the ARDC FAIR Assessment Tool"
 
     // Write text output
@@ -47,7 +49,16 @@ const generateText = () => {
     '<h5>Interoperable</h5>' +
     '<p>_______________</p>' +
     '<p>What (file) format(s) is the data available in?</p>' +
-    '<p>' + val8 + '</p>'
+    '<p>' + val8 + '</p>' +
+    '<br />' +
+    '<p>What best describes the types of vocabularies/ontologies/tagging schemas used to define the data elements?</p>' +
+    '<p>' + val9 + '</p>' +
+    '<br /> ' +
+    '<p>How is the metadata linked to other data and metadata (to enhance context and clearly indicate relationships)?</p>' +
+    '<p>' + val10 + '</p>' +
+    '<br />' +
+    '<h5>Reusable</h5>' +
+    '<p>_______________</p>'
 
     const element_to_scroll_to = document.getElementById('toptext');
     element_to_scroll_to.scrollIntoView(behaviour='smooth');
@@ -97,19 +108,19 @@ window.onclick = function(event) {
 }
 
 
-// COPY TO CLIPBOARD
-function copyToClipboard() {
-  /* Get the text field */
-  var copyText = document.getElementById("placeholder");
+// // COPY TO CLIPBOARD
+// function copyToClipboard() {
+//   /* Get the text field */
+//   var copyText = document.getElementById("placeholder");
 
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+//   /* Select the text field */
+//   copyText.select();
+//   copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
+//   /* Copy the text inside the text field */
+//   document.execCommand("copy");
 
-  /* Alert the copied text */
-  // alert("Copied the text: " + copyText.value);
-  alert("The text has been copied to the clipboard");
-}
+//   /* Alert the copied text */
+//   // alert("Copied the text: " + copyText.value);
+//   alert("The text has been copied to the clipboard");
+// }
