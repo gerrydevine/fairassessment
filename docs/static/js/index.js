@@ -175,78 +175,73 @@ const generateText = () => {
 
     
     // Write HTML block to modal inner text
-    document.getElementById('modal-content').innerHTML = htmlBlock
+    document.getElementById('main-modal-content').innerHTML = htmlBlock
     
     // copy text to the clipboard
     copyToClipboard(textBlock)
 
 
     // Get the modal and open it
-    var modal = document.getElementById("myModal");
+    var mainModal = document.getElementById("mainModal");
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+    // var span = document.getElementById("closeMainModal");
     // When the user clicks on the button, open the modal
-    modal.style.display = "block";
+    mainModal.style.display = "block";
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
+      if (event.target == mainModal) {
+        mainModal.style.display = "none";
       }
     }
 
 
 };
 
-// const clearText = () => {
-//     document.getElementById('placeholder').innerHTML = ""
-//     // Show Clear Text button
-//     var x = document.getElementById("clearTextBtn");
-//     x.style.display = "none";
-//     // Show Copy Clipboard button
-//     var y = document.getElementById("copyClipboardBtn");
-//     y.style.display = "none";
-// };
+const openFindableModal = () => {
+    var findableModal = document.getElementById("findableModal");
+    findableModal.style.display = "block";
 
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == findableModal) {
+          findableModal.style.display = "none";
+        }
+    }
+}
 
+const openAccessibleModal = () => {
+    var accessibleModal = document.getElementById("accessibleModal");
+    accessibleModal.style.display = "block";
 
-// // ----- MODAL -----------
-// // Get the modal
-// var modal = document.getElementById("myModal");
-// // Get the button that opens the modal
-// var btn = document.getElementById("myBtn");
-// // Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
-// // When the user clicks on the button, open the modal
-// btn.onclick = function() {
-//   modal.style.display = "block";
-// }
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == accessibleModal) {
+          accessibleModal.style.display = "none";
+        }
+    }
+}
 
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
+const openInteroperableModal = () => {
+    var interoperableModal = document.getElementById("interoperableModal");
+    interoperableModal.style.display = "block";
 
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == interoperableModal) {
+          interoperableModal.style.display = "none";
+        }
+    }
+}
 
-// // COPY TO CLIPBOARD
-// function copyToClipboard() {
-//   /* Get the text field */
-//   var copyText = document.getElementById("placeholder");
+const openReusableModal = () => {
+    var reusableModal = document.getElementById("reusableModal");
+    reusableModal.style.display = "block";
 
-//   /* Select the text field */
-//   copyText.select();
-//   copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-//   /* Copy the text inside the text field */
-//   document.execCommand("copy");
-
-//   /* Alert the copied text */
-//   // alert("Copied the text: " + copyText.value);
-//   alert("The text has been copied to the clipboard");
-// }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == reusableModal) {
+          reusableModal.style.display = "none";
+        }
+    }
+}

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="static/css/custom.css">
     <title>Document</title>
 </head>
@@ -18,25 +19,10 @@
 
         <p>This FAIR assessment rating tool (ported form the <a href="https://ardc.edu.au/resources/working-with-data/fair-data/fair-self-assessment-tool/">ARDC FAIR Assessment tool</a>) allows 
             you to rate your dataset for <a href="https://www.go-fair.org/fair-principles/"><strong>FAIRness</strong></a> in advance of uploading it into the Macquarie University Research Data Repository</p>
-
-        
-        <!-- Trigger/Open The Modal -->
-        <!-- <button id="myBtn">About</button> -->
-        
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-          
-          <!-- Modal content -->
-          <div class="modal-content" id="modal-content">
-            <span class="close">&times;</span>
-            This tool allows you to rate your dataset for FAIRness.
-          </div>
-          
-        </div>
         
         <hr />
 
-        <h3>Findable</h3>
+        <p><span style="font-size:36px;">Findable </span> <i style="font-size:30px;" id="findable-info" class="fas fa-info-circle" onclick=openFindableModal()></i></p>
 
         <label for="fair-findable-1">Does the dataset have any identifiers assigned?</label>
         <select id="fair-findable-1" name="fair-findable-1">
@@ -79,7 +65,7 @@
 
         <br />
 
-        <h3>Accessible</h3>
+        <p><span style="font-size:36px;">Accessible </span> <i style="font-size:30px;" id="accessible-info" class="fas fa-info-circle" onclick=openAccessibleModal()></i></p>
 
         <label for="fair-accessible-1">How accessible is the data?</label>
         <select id="fair-accessible-1" name="fair-accessible-1">
@@ -116,7 +102,8 @@
 
         <br />
 
-        <h3>Interoperable</h3>
+        <p><span style="font-size:36px;">Interoperable </span> <i style="font-size:30px;" id="interoperable-info" class="fas fa-info-circle" onclick=openInteroperableModal()></i></p>
+        
 
         <label for="fair-interoperable-1">What (file) format(s) is the data available in?</label>
         <select id="fair-interoperable-1" name="fair-interoperable-1">
@@ -149,7 +136,7 @@
 
         <br />
 
-        <h3>Reusable</h3>
+        <p><span style="font-size:36px;">Reusable </span> <i style="font-size:30px;" id="reusable-info" class="fas fa-info-circle" onclick=openReusableModal()></i></p>
 
         <label for="fair-reusable-1">Which of the following best describes the license/usage rights attached to the data?</label>
         <select id="fair-reusable-1" name="fair-reusable-1">
@@ -171,19 +158,66 @@
         </select>
 
         <br />
-
         <br />
         <br />
-
-        <div id ="toptext"></div>
         
         <input id="generateTextBtn" class="button-primary" type="button" value="Submit" onclick=generateText()>
-        <!-- <input id="clearTextBtn" class="button" type="button" value="Clear Text" onclick=clearText() style="display: none" >
-        <input id="copyClipboardBtn" class="button-secondary" type="button" value="Copy to Clipboard" onclick=copyToClipboard() style="display: none" > -->
 
         <hr /> 
 
-        <div id="placeholder">
+
+        <!-- Modal Pop-ups -->
+        
+        <!-- Main Results Modal -->
+        <div id="mainModal" class="modal">
+    
+            <!-- Modal content -->
+            <div class="modal-content" id="main-modal-content">
+            </div>
+            
+        </div>
+        
+        <!-- Findable Help Modal -->
+        <div id="findableModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" id="findable-modal-content">
+                Making data Findable includes assigning a persistent identifier (like a DOI or Handle ), having 
+                rich metadata to describe the data and making sure it is findable through disciplinary and generalist 
+                discovery portals (local and international).
+            </div>
+        </div>
+        
+        <!-- Accessible Help Modal -->
+        <div id="accessibleModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" id="accessible-modal-content">
+                To make data accessible may include making the data open using a standardised protocol. However the data 
+                does not necessarily have to be open. There are sometimes good reasons why data cannot be made open, for 
+                example privacy concerns, national security or commercial interests. If it is not open there should be 
+                clarity and transparency around the conditions governing access and reuse.
+            </div>
+        </div>
+        
+        <!-- Interoperable Help Modal -->
+        <div id="interoperableModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" id="interoperable-modal-content">
+                To be interoperable (i.e. data that is interpretable by a computer, so that they can be automatically combined 
+                with other data) the data will need to use community agreed formats, language and vocabularies. The metadata 
+                will also need to use a community agreed standards and vocabularies, and contain links to related information 
+                using identifiers.
+            </div>
+        </div>
+        
+        <!-- Reusable Help Modal -->
+        <div id="reusableModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content" id="reusableble-modal-content">
+                Reusable data should maintain its initial richness. For example, it should not be abridged for the purpose of 
+                explaining the findings in one particular publication. It needs a clear machine-readable licence and provenance 
+                information on how the data was formed. It should also use discipline-specific data and metadata standards to 
+                give it rich contextual information that will allow for accurate interpretation and reuse.
+            </div>
         </div>
 
     </div>
