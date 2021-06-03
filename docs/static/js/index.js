@@ -1,4 +1,37 @@
+// Get current datetime
+function getDateTime() {
+    var now     = new Date(); 
+    var year    = now.getFullYear();
+    var month   = now.getMonth()+1; 
+    var day     = now.getDate();
+    var hour    = now.getHours();
+    var minute  = now.getMinutes();
+    var second  = now.getSeconds(); 
+    if(month.toString().length == 1) {
+         month = '0'+month;
+    }
+    if(day.toString().length == 1) {
+         day = '0'+day;
+    }   
+    if(hour.toString().length == 1) {
+         hour = '0'+hour;
+    }
+    if(minute.toString().length == 1) {
+         minute = '0'+minute;
+    }
+    if(second.toString().length == 1) {
+         second = '0'+second;
+    }   
+    var dateTime = year+month+day+'-'+hour+minute+second;   
+     return dateTime;
+}
+
+currentTime = getDateTime();
+
+
 const generateText = () => {
+
+
     // Grab the form selected answers
     const val1 = document.getElementById('fair-findable-1').value;
     const val2 = document.getElementById('fair-findable-2').value;
@@ -82,56 +115,6 @@ const generateText = () => {
         parseInt(rating12)
 
     const result = Math.round((total/42)*100) 
-    
-    // Generate popup html block
-    const htmlBlock = 
-    '<h5>Your text has been copied to the clipboard and can now be pasted into the Macquarie University Research Data Repository</h5>' +
-    '<hr />' +
-    '<h3>Results Summary</h3>' +
-    'Your Overall FAIR assesment is:' + 
-    '<h2>' + result + '%</h2>' + 
-    '<progress style="width: 100%; height: 50px;" max="100" value="'+result+'"></progress>' +
-    'Findable' + 
-    '<p><progress style="width: 25%; height: 25px;" max="100" value="'+ff_result+'"></progress></p>' +
-    'Accessible' + 
-    '<p><progress style="width: 25%; height: 25px;" max="100" value="'+fa_result+'"></progress></p>' +
-    'Interoperable' + 
-    '<p><progress style="width: 25%; height: 25px;" max="100" value="'+fi_result+'"></progress></p>' +
-    'Reusable' + 
-    '<p><progress style="width: 25%; height: 25px;" max="100" value="'+fr_result+'"></progress></p>' +
-    '<hr />' +
-
-    '<h5>Findable</h5>' +
-    'Does the dataset have any identifiers assigned?' +
-    '<p>' + val1 + '</p>' +
-    'Is the dataset identifier included in all metadata records/files describing the data?' +
-    '<p>' + val2 + '</p>' +
-    'How is the data described with metadata?' +
-    '<p>' + val3 + '</p>' +
-    'What type of repository or registry is the metadata record in?' +
-    '<p>' + val4 + '</p>' +
-
-    '<h5>Accessible</h5>' +
-    'How accessible is the data?' +
-    '<p>' + val5 + '</p>' +
-    'Is the data available online without requiring specialised protocols or tools once access has been approved?' +
-    '<p>' + val6 + '</p>' +
-    'Will the metadata record be available even if the data is no longer available?' +
-    '<p>' + val7 + '</p>' + 
-
-    '<h5>Interoperable</h5>' +
-    'What (file) format(s) is the data available in?' +
-    '<p>' + val8 + '</p>' +
-    'What best describes the types of vocabularies/ontologies/tagging schemas used to define the data elements?' +
-    '<p>' + val9 + '</p>' +
-    'How is the metadata linked to other data and metadata (to enhance context and clearly indicate relationships)?' +
-    '<p>' + val10 + '</p>' +
-
-    '<h5>Reusable</h5>' +
-    'Which of the following best describes the license/usage rights attached to the data?' +
-    '<p>' + val11 + '</p>' +
-    'How much provenance information has been captured to facilitate data reuse?' +
-    '<p>' + val12 + '</p>'
 
     // Generate text block for copying to clipboard
     const textBlock = 
@@ -172,19 +155,79 @@ const generateText = () => {
     val11 + '\n\n' +
     'How much provenance information has been captured to facilitate data reuse?' + '\n' +
     val12 + '\n'
+    
+
+    // Generate popup html block
+    const htmlBlock = 
+    '<h5>Your text has been copied to the clipboard and can now be pasted into the Macquarie University Research Data Repository</h5>' +
+    '<h6>You can also download the results for later reuse <a href="#" id="download">here</a></h6>' +
+    '<hr />' +
+    '<h3>Results Summary</h3>' +
+    'Your Overall FAIR assesment is:' + 
+    '<h2>' + result + '%</h2>' + 
+    '<progress style="width: 100%; height: 50px;" max="100" value="'+result+'"></progress>' +
+    'Findable' + 
+    '<p><progress style="width: 25%; height: 25px;" max="100" value="'+ff_result+'"></progress></p>' +
+    'Accessible' + 
+    '<p><progress style="width: 25%; height: 25px;" max="100" value="'+fa_result+'"></progress></p>' +
+    'Interoperable' + 
+    '<p><progress style="width: 25%; height: 25px;" max="100" value="'+fi_result+'"></progress></p>' +
+    'Reusable' + 
+    '<p><progress style="width: 25%; height: 25px;" max="100" value="'+fr_result+'"></progress></p>' +
+    '<hr />' +
+
+    '<h5>Findable</h5>' +
+    '<strong>Does the dataset have any identifiers assigned?</strong>' +
+    '<p>' + val1 + '</p>' +
+    'Is the dataset identifier included in all metadata records/files describing the data?' +
+    '<p>' + val2 + '</p>' +
+    'How is the data described with metadata?' +
+    '<p>' + val3 + '</p>' +
+    'What type of repository or registry is the metadata record in?' +
+    '<p>' + val4 + '</p>' +
+
+    '<h5>Accessible</h5>' +
+    'How accessible is the data?' +
+    '<p>' + val5 + '</p>' +
+    'Is the data available online without requiring specialised protocols or tools once access has been approved?' +
+    '<p>' + val6 + '</p>' +
+    'Will the metadata record be available even if the data is no longer available?' +
+    '<p>' + val7 + '</p>' + 
+
+    '<h5>Interoperable</h5>' +
+    'What (file) format(s) is the data available in?' +
+    '<p>' + val8 + '</p>' +
+    'What best describes the types of vocabularies/ontologies/tagging schemas used to define the data elements?' +
+    '<p>' + val9 + '</p>' +
+    'How is the metadata linked to other data and metadata (to enhance context and clearly indicate relationships)?' +
+    '<p>' + val10 + '</p>' +
+
+    '<h5>Reusable</h5>' +
+    'Which of the following best describes the license/usage rights attached to the data?' +
+    '<p>' + val11 + '</p>' +
+    'How much provenance information has been captured to facilitate data reuse?' +
+    '<p>' + val12 + '</p>'
 
     
     // Write HTML block to modal inner text
     document.getElementById('main-modal-content').innerHTML = htmlBlock
     
+    // Populate download text button
+
+    var fileName = "FAIR_Results_" + currentTime + ".txt";
+    var myFile = new Blob([textBlock], {type: 'text/plain'});
+
+    window.URL = window.URL || window.webkitURL;
+    var dlBtn = document.getElementById("download");
+
+    dlBtn.setAttribute("href", window.URL.createObjectURL(myFile));
+    dlBtn.setAttribute("download", fileName);
+
     // copy text to the clipboard
     copyToClipboard(textBlock)
 
-
     // Get the modal and open it
     var mainModal = document.getElementById("mainModal");
-    // Get the <span> element that closes the modal
-    // var span = document.getElementById("closeMainModal");
     // When the user clicks on the button, open the modal
     mainModal.style.display = "block";
 
@@ -197,6 +240,7 @@ const generateText = () => {
 
 
 };
+
 
 const openFindableModal = () => {
     var findableModal = document.getElementById("findableModal");
